@@ -1,0 +1,36 @@
+﻿<Application x:Class="AccountManager.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:AccountManager"
+             xmlns:views="clr-namespace:AccountManager.MVVM.Views"
+             xmlns:viewModels="clr-namespace:AccountManager.MVVM.ViewModels"
+             Startup="ApplicationStart">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Styles/CategoryStyle.xaml"/>
+                <ResourceDictionary Source="Styles/ButtonStyle.xaml"/>
+                <ResourceDictionary Source="Styles/ComboBoxStyle.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+
+            <DataTemplate DataType="{x:Type viewModels:LogInViewModel}">
+                <views:LogInView/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type viewModels:SignInViewModel}">
+                <views:SignInView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type viewModels:HomeViewModel}">
+                <views:HomeView/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type viewModels:GroupsViewModel}">
+                <views:GroupsView/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type viewModels:AccountsViewModel}">
+                <views:AccountsView/>
+            </DataTemplate>
+
+            <BooleanToVisibilityConverter x:Key="BoolToVisible"/>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

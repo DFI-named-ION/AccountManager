@@ -1,0 +1,47 @@
+﻿<UserControl x:Class="AccountManager.MVVM.Views.LogInView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+        xmlns:twoStyle="clr-namespace:AccountManager.Styles"
+        mc:Ignorable="d"
+        Height="400" 
+        Width="400"
+        Background="Transparent"
+        UseLayoutRounding="True">
+    <StackPanel Margin="30, 0, 30, 0">
+        <Image Margin="0, 25, 0, 0" Source="../../Images/logo.png" Height="100"/>
+        <StackPanel Orientation="Horizontal" Margin="0, 20, 0, 0">
+            <TextBlock Text="Login:" FontSize="20" Foreground="White"/>
+            <StackPanel Margin="15, 0, 0, 0">
+                <TextBox Background="Transparent" FontSize="20" Foreground="White" Width="250" MaxLength="15"
+                                 BorderThickness="0" Text="{Binding Login, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                <Border Background="Tan" CornerRadius="10" Height="5" Width="250"/>
+            </StackPanel>
+        </StackPanel>
+        <TextBlock HorizontalAlignment="Left" Text="{Binding LogInErrorMessage, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                   Margin="0, 5, 0, 0"
+                   Foreground="White" FontSize="16" TextDecorations="Underline" FontStyle="Italic"/>
+        <StackPanel Orientation="Horizontal" Margin="0, 20, 0, 0">
+            <TextBlock Text="Password:" FontSize="20" Foreground="White"/>
+            <StackPanel Margin="15, 0, 0, 0">
+                <TextBox Background="Transparent" FontSize="20" Foreground="White" Width="220" MaxLength="20"
+                                 BorderThickness="0" Text="{Binding Password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                <Border Background="Tan" CornerRadius="10" Height="5" Width="220"/>
+            </StackPanel>
+        </StackPanel>
+        <TextBlock HorizontalAlignment="Left" Text="{Binding PasswordErrorMessage, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                   Margin="0, 5, 0, 0"
+                   Foreground="White" FontSize="16" TextDecorations="Underline" FontStyle="Italic"/>
+        <Button Margin="0, 15, 0, 0" Width="250" Height="40" Content="Log-in" FontSize="20" BorderThickness="0" 
+                IsEnabled="{Binding IsWorking}" Foreground="White" Style="{twoStyle:MultiStyle Round OvalOnHover}" 
+                Command="{Binding LogInCommand}">
+            <Button.Background>
+                <LinearGradientBrush StartPoint="0, 0" EndPoint="1, 4">
+                    <GradientStop Color="DarkCyan" Offset="0.0"/>
+                    <GradientStop Color="GreenYellow" Offset="1"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+    </StackPanel>
+</UserControl>

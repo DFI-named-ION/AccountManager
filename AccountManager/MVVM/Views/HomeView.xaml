@@ -1,0 +1,55 @@
+﻿<UserControl x:Class="AccountManager.MVVM.Views.HomeView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:AccountManager.MVVM.Views"
+             mc:Ignorable="d" 
+             xmlns:twoStyle="clr-namespace:AccountManager.Styles"
+             d:DesignHeight="400" d:DesignWidth="600">
+    <StackPanel>
+        <StackPanel Orientation="Vertical" Margin="0, 25, 0, 0" HorizontalAlignment="Left">
+            <Border Width="500" Height="180" CornerRadius="20" Margin="50, 0, 0, 0">
+                <Border.Background>
+                    <LinearGradientBrush StartPoint="0, 0" EndPoint="1, 1.5">
+                        <GradientStop Color="Tomato" Offset="0.0"/>
+                        <GradientStop Color="#dce23a" Offset="1"/>
+                    </LinearGradientBrush>
+                </Border.Background>
+                <StackPanel>
+                    <TextBlock Text="Features" Foreground="White" FontSize="22" HorizontalAlignment="Left" 
+                                   Margin="30, 30, 0, 0"/>
+                    <TextBlock Text="- Desktop application&#x0a;- Secure containing your valuable data&#x0a;- Used two cryptosystems, one for your account,&#x0a;   another to your data" 
+                               Foreground="White" FontSize="16" HorizontalAlignment="Left" Margin="50, 10, 0, 0"/>
+                </StackPanel>
+            </Border>
+            <StackPanel Orientation="Horizontal" Margin="0, 30, 0, 0" HorizontalAlignment="Left">
+                <Border CornerRadius="20" Width="220" Height="150" Margin="50, 0, 0, 0">
+                    <Border.Background>
+                        <LinearGradientBrush StartPoint="0, 0" EndPoint="1, 1.5">
+                            <GradientStop Color="MediumSlateBlue" Offset="0.0"/>
+                            <GradientStop Color="Plum" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Border.Background>
+                    <StackPanel VerticalAlignment="Top">
+                        <TextBlock Text="Groups" Foreground="White" FontSize="22" HorizontalAlignment="Left" Margin="15, 15, 0, 0"/>
+                        <TextBlock Text="-Using to group &#x0a;user accounts" Foreground="White" FontSize="16" HorizontalAlignment="Left" Margin="25, 15, 0, 0"/>
+                    </StackPanel>
+                </Border>
+                <Border CornerRadius="20" Width="220" Height="150" Margin="60, 0, 0, 0">
+                    <Border.Background>
+                        <LinearGradientBrush StartPoint="0, 0" EndPoint="1, 1.5">
+                            <GradientStop Color="ForestGreen" Offset="0.0"/>
+                            <GradientStop Color="SpringGreen" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Border.Background>
+                    <StackPanel VerticalAlignment="Top">
+                        <TextBlock Text="Accounts" Foreground="White" FontSize="22" HorizontalAlignment="Left" Margin="15, 15, 0, 0"/>
+                        <TextBlock Text="-Exactly what you &#x0a;need to contain" Foreground="White" FontSize="16" HorizontalAlignment="Left" Margin="25, 15, 0, 0"/>
+                    </StackPanel>
+                </Border>
+            </StackPanel>
+        </StackPanel>
+    </StackPanel>
+</UserControl>
+

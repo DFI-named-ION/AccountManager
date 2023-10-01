@@ -1,0 +1,67 @@
+﻿<Window x:Class="AccountManager.MVVM.Views.Windows.ProgramWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AccountManager.MVVM.Views.Windows"
+        xmlns:viewModels="clr-namespace:AccountManager.MVVM.ViewModels"
+        xmlns:twoStyle="clr-namespace:AccountManager.Styles"
+        mc:Ignorable="d"
+        Title="Account Manager"
+        Height="450"
+        Width="800"
+        WindowStyle="None"
+        AllowsTransparency="True"
+        Background="Transparent"
+        UseLayoutRounding="True"
+        ResizeMode="NoResize"
+        Visibility="{Binding VisibleState, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Icon="/Images/logo.ico">
+    <Window.DataContext>
+        <viewModels:ProgramViewModel></viewModels:ProgramViewModel>
+    </Window.DataContext>
+    <Border CornerRadius="15" Background="#272537">
+        <Grid x:Name="windowGrid" ShowGridLines="False">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.8*"/>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="10*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="3*"/>
+            </Grid.ColumnDefinitions>
+            <Border Grid.ColumnSpan="2" MouseDown="Border_MouseDown">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Orientation="Horizontal" Background="Transparent">
+                        <Image Margin="15, 0, 0, 0" Source="../../../Images/logo.png" Stretch="Uniform" Width="auto" Height="30"/>
+                    </StackPanel>
+                    <StackPanel Grid.Column="1" Orientation="Horizontal" FlowDirection="RightToLeft" Background="Transparent">
+                        <Button x:Name="btnClose" Margin="15, 0, 0, 0" Width="60" BorderThickness="0" 
+                                Background="Transparent" Foreground="White" Content="Close" Command="{Binding CloseWindowCommand}"
+                                Style="{StaticResource TransparentBorderOnHover}"/>
+                        <Button x:Name="btnMinimize" Width="60" BorderThickness="0" Background="Transparent" Foreground="White" 
+                                Content="Minimize" Command="{Binding MinimizeWindowCommand}"
+                                Style="{StaticResource TransparentBorderOnHover}"/>
+                    </StackPanel>
+                </Grid>
+            </Border>
+            <TextBlock x:Name="txtUserName" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Left" 
+                       Margin="20, 0, 0, 0" Foreground="White" FontSize="20" Text="{Binding User.Login}"/>
+            <StackPanel Grid.Row="2">
+                <RadioButton Content="Home" Height="30" Foreground="White" FontSize="16" IsChecked="True" 
+                             Command="{Binding HomeViewCommand}" Style="{StaticResource CategoryStyle}"/>
+                <RadioButton Content="Groups" Height="30" Foreground="White" FontSize="16" 
+                             Command="{Binding GroupsViewCommand}" Style="{StaticResource CategoryStyle}"/>
+                <RadioButton Content="Accounts" Height="30" Foreground="White" FontSize="16" 
+                             Command="{Binding AccountsViewCommand}" Style="{StaticResource CategoryStyle}"/>
+                <RadioButton Content="Log out" Foreground="White" FontSize="16" Height="30" 
+                        Margin="0, 200, 0, 0" Style="{StaticResource CategoryStyle}" Command="{Binding LogOutCommand}"/>
+            </StackPanel>
+            <ContentControl Grid.Row="1" Grid.RowSpan="2" Grid.Column="1" Margin="5" Content="{Binding CurrentView}"/>
+        </Grid>
+    </Border>
+</Window>
